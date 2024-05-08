@@ -22,7 +22,7 @@ namespace ToDo.Service.ToDoItems
         {
             this.toDoRepository = toDoRepository;
         }
-        public async Task Add(ToDoItem newToDoItem)
+        public async Task AddToDoItem(ToDoItem newToDoItem)
         {
 
             //Added fluent validation in the business model to see how it works
@@ -38,6 +38,11 @@ namespace ToDo.Service.ToDoItems
                 //Wanted to validate in the business rules.  Need to find a slick easy way and not throw an actual exception
                 Task.FromResult(results);
             }
+        }
+
+        public Task<ToDoItem?> GetToDoItem(string id)
+        {
+            return this.toDoRepository.Get(id);
         }
     }
 }

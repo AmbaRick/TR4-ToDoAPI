@@ -17,7 +17,7 @@ namespace ToDo.Service.Interfaces
 
         Task Add(ToDoItem newCustomer);
 
-        //Task<ToDoItem?> Get(string id);
+        Task<ToDoItem?> Get(string id);
 
         //Task Delete(string id);
 

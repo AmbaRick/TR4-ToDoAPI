@@ -9,6 +9,8 @@ namespace ToDo.Service.Interfaces
 {
     public interface IToDoService
     {
-        Task Add(ToDoItem toDoItem);
+        Task AddToDoItem(ToDoItem toDoItem);
+
+        Task<ToDoItem?> GetToDoItem(string id);
     }
 }

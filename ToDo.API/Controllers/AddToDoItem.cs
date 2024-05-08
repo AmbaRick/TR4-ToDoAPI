@@ -20,24 +20,22 @@ namespace ToDo.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(ToDoItem newToDoItem)
         {
-            await toDoService.Add(newToDoItem);
+            await toDoService.AddToDoItem(newToDoItem);
             return CreatedAtAction(nameof(GetById), new { id = newToDoItem.Id }, newToDoItem);
         }
 
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<ToDoItem>> GetById(string id)
-        { 
+        {
             //TODO: Set up for mocking purposes
-        //    var toDoItem = await toDoService.GetEntryById(id);
+            var toDoItem = await toDoService.GetToDoItem(id);
 
-        //    if (toDoItem == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return toDoItem;
-            ToDoItem toDoDoItem = new ToDoItem();
-            toDoDoItem.Id = id;
-            return toDoDoItem;
+            if (toDoItem == null)
+            {
+                return NotFound();
+            }
+            return toDoItem;
+            
         }
     }
 }

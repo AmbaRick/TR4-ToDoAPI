@@ -28,5 +28,10 @@ namespace ToDo.Infrastructure.Data
         }
         public async Task Add(ToDoItem newToDoItem) =>
           await toDoItemList.InsertOneAsync(newToDoItem);
+
+        public async Task<ToDoItem?> Get(string id) =>
+        await toDoItemList.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+
     }
 }
