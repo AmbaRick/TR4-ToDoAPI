@@ -7,6 +7,7 @@ using ToDo.Service.Entities;
 
 namespace ToDo.Service.Interfaces
 {
+    //interface to set methods available for service
     public interface IToDoService
     {
         Task AddToDoItem(ToDoItem toDoItem);

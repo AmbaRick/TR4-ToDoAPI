@@ -3,6 +3,10 @@ using ToDo.Service.Entities;
 
 namespace ToDo.Service.Common
 {
+
+    /// <summary>
+    /// Validate set up to validate the entry for ToDoItem
+    /// </summary>
     public class ToDoItemValidator : AbstractValidator<ToDoItem>
     {
         public ToDoItemValidator()

@@ -6,6 +6,10 @@ using ToDo.Service.ToDoItems;
 
 namespace ToDo.API.Controllers
 {
+    /// <summary>
+    /// API controller to manage the CRUD commands and queries for TODO Items
+    /// Creates an DI instance of ToDoService
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ToDoItemController : ControllerBase
