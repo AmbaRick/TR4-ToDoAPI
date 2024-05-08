@@ -19,8 +19,12 @@ namespace ToDo.Service.Interfaces
 
         Task<ToDoItem?> Get(string id);
 
+        Task<List<ToDoItem>> GetAll();
+
         //Task Delete(string id);
 
-        //Task Update(ToDoItem newCustomer);
+        Task Update(string id, ToDoItem newToDoItem);
+
+        Task Delete(string id);
     }
 }

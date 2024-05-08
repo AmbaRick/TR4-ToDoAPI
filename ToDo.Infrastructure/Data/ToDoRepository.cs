@@ -32,6 +32,11 @@ namespace ToDo.Infrastructure.Data
         public async Task<ToDoItem?> Get(string id) =>
         await toDoItemList.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+        public async Task<List<ToDoItem>> GetAll() => await toDoItemList.Find(_ => true).ToListAsync();
+
+        public async Task Update(string id, ToDoItem newToDoItem) => await toDoItemList.ReplaceOneAsync(x => x.Id == id, newToDoItem);
+
+        public async Task Delete(string id) => await toDoItemList.DeleteOneAsync(x => x.Id == id);
 
     }
 }

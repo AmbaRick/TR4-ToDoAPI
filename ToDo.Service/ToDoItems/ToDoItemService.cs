@@ -40,9 +40,12 @@ namespace ToDo.Service.ToDoItems
             }
         }
 
-        public Task<ToDoItem?> GetToDoItem(string id)
-        {
-            return this.toDoRepository.Get(id);
-        }
+        public async Task<ToDoItem?> GetToDoItem(string id) => await this.toDoRepository.Get(id);
+        
+        public async Task<List<ToDoItem>> GetAllToDoItems() => await this.toDoRepository.GetAll();
+
+        public async Task UpdateToDoItem(string id, ToDoItem newToDoItem) => await this.toDoRepository.Update(id, newToDoItem);
+
+        public async Task DeleteToDoItem(string id) => await this.toDoRepository.Delete(id);
     }
 }

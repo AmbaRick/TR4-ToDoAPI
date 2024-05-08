@@ -24,6 +24,9 @@ namespace ToDo.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = newToDoItem.Id }, newToDoItem);
         }
 
+        [HttpGet]
+        public async Task<List<ToDoItem>> GetAll() => await toDoService.GetAllToDoItems();
+
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<ToDoItem>> GetById(string id)
         {
@@ -37,5 +40,42 @@ namespace ToDo.API.Controllers
             return toDoItem;
             
         }
+
+        [HttpPut("{id:length(24)}")]
+        public async Task<IActionResult> Update(string id, ToDoItem UpdatedToDoItem)
+        {
+
+
+            var todoItem = await toDoService.GetToDoItem(id); 
+
+            if (todoItem is null)
+            {
+                return NotFound();
+            }
+
+            UpdatedToDoItem.Id = todoItem.Id;
+
+            await toDoService.UpdateToDoItem(id, UpdatedToDoItem);
+
+            return NoContent();
+        
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var todoItem = await toDoService.GetToDoItem(id);
+
+            if (todoItem is null)
+            {
+                return NotFound();
+            }
+
+            await toDoService.DeleteToDoItem(id);
+
+            return NoContent();
+        }
+
+
     }
 }
