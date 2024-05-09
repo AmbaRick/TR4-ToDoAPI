@@ -34,7 +34,6 @@ namespace ToDo.API.Controllers
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<ToDoItem>> GetById(string id)
         {
-            //TODO: Set up for mocking purposes
             var toDoItem = await toDoService.GetToDoItem(id);
 
             if (toDoItem == null)

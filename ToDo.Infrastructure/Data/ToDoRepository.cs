@@ -20,7 +20,6 @@ namespace ToDo.Infrastructure.Data
     public class ToDoRepository : IToDoRepository
     {
         public readonly IMongoCollection<ToDoItem> toDoItemList;
-        //TODO: check this is being injected
         public ToDoRepository(IOptions<ToDoRepositorySettings> toDoRepositorySettings)
         {
             ToDoRepositorySetUp ToDoRepository = new ToDoRepositorySetUp(toDoRepositorySettings);

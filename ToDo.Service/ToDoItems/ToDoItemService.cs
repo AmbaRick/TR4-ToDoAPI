@@ -24,7 +24,7 @@ namespace ToDo.Service.ToDoItems
         }
         public async Task AddToDoItem(ToDoItem newToDoItem)
         {
-
+            //TODO: find a way to add validation in biz rules
             //Added fluent validation in the business model to see how it works
             ToDoItemValidator validator = new ToDoItemValidator();
             ValidationResult results = await validator.ValidateAsync(newToDoItem);
