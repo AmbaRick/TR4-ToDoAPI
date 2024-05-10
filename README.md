@@ -48,7 +48,7 @@ CustomerDatabase": {
 
 4. Run the application using `dotnet run`.
 
-#Endpoints
+**#Endpoints**
 
 Below are the endpoints structure detailed:
 
@@ -57,6 +57,7 @@ Below are the endpoints structure detailed:
 •	POST: /api/todoitem/ - Creates a new ToDo item – using ToDOItem listed object below  
 •	PUT:  /api/todoitem/{id}    - Updates the ToDo item of passed in ID using ToDOItem listed object
 •	DELETE:  /api/todoitem/{id}    - Deletes a ToDo item based on passed ID  
+
 
 Example json for ToDoItem
 {
