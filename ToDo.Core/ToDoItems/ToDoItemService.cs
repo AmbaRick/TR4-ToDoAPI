@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDo.Service.Common;
-using ToDo.Service.Entities;
+using ToDo.Core.Common;
+using ToDo.Core.Entities;
 using FluentValidation.Results;
 
-using ToDo.Service.Interfaces;
+using ToDo.Core.Interfaces;
 
-namespace ToDo.Service.ToDoItems
+namespace ToDo.Core.ToDoItems
 {
     /// <summary>
     /// Service dedicated to dealing with CRUD opertions

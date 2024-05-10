@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using ToDo.Service.Entities;
+using ToDo.Core.Entities;
 
-namespace ToDo.Service.Common
+namespace ToDo.Core.Common
 {
 
     /// <summary>

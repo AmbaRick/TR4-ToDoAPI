@@ -8,7 +8,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
-using ToDo.Service.Entities;
+using ToDo.Core.Entities;
 
 namespace ToDo.Infrastructure.Data
 {
@@ -52,7 +52,7 @@ namespace ToDo.Infrastructure.Data
 
 
                     });
-
+                   
                 }
             }
             return this;

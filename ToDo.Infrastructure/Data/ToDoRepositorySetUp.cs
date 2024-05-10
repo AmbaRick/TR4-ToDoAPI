@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using ToDo.Service.Entities;
+using ToDo.Core.Entities;
 
 
 namespace ToDo.Infrastructure.Data

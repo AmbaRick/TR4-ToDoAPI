@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDo.Service.Entities;
+using ToDo.Core.Entities;
 
-namespace ToDo.Service.Interfaces
+namespace ToDo.Core.Interfaces
 {
     /// <summary>
     /// Interface that sets the methods required for the ToDo services from a generic repository

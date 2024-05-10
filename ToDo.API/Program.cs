@@ -1,7 +1,7 @@
 using ToDo.Infrastructure.Data; 
 using Microsoft.EntityFrameworkCore;
-using ToDo.Service.Interfaces;
-using ToDo.Service.ToDoItems;
+using ToDo.Core.Interfaces;
+using ToDo.Core.ToDoItems;
 
 var builder = WebApplication.CreateBuilder(args);
 

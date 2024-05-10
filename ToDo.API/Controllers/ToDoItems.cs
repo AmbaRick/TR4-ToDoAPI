@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ToDo.Service.Entities;
-using ToDo.Service.Interfaces;
-using ToDo.Service.ToDoItems;
+using ToDo.Core.Entities;
+using ToDo.Core.Interfaces;
+using ToDo.Core.ToDoItems;
 
 namespace ToDo.API.Controllers
 {
@@ -21,16 +21,35 @@ namespace ToDo.API.Controllers
             this.toDoService = toDoService;
         }
 
+        /// <summary>
+        /// API method to add an item to the todo list
+        /// </summary>
+        /// <param name="newToDoItem"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post(ToDoItem newToDoItem)
         {
+            //TODO: 
+            newToDoItem.Id  = string.Empty;
             await toDoService.AddToDoItem(newToDoItem);
+
             return CreatedAtAction(nameof(GetById), new { id = newToDoItem.Id }, newToDoItem);
         }
 
+        /// <summary>
+        /// API method to Get all todo items
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<List<ToDoItem>> GetAll() => await toDoService.GetAllToDoItems();
 
+
+        //TODO: add validation on to input
+        /// <summary>
+        /// API method to get a ToDo item by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<ToDoItem>> GetById(string id)
         {
@@ -44,6 +63,13 @@ namespace ToDo.API.Controllers
             
         }
 
+
+        /// <summary>
+        /// API method to update a to do item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UpdatedToDoItem"></param>
+        /// <returns></returns>
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, ToDoItem UpdatedToDoItem)
         {
@@ -60,10 +86,16 @@ namespace ToDo.API.Controllers
 
             await toDoService.UpdateToDoItem(id, UpdatedToDoItem);
 
-            return NoContent();
+            return Ok();
         
         }
 
+
+        /// <summary>
+        /// API method to delete a totdo item based on ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -76,7 +108,7 @@ namespace ToDo.API.Controllers
 
             await toDoService.DeleteToDoItem(id);
 
-            return NoContent();
+            return Ok();
         }
 
 

@@ -11,9 +11,9 @@ using System.Net.Http;
 using System.Text.Json;
 using ToDo.API.Controllers;
 using ToDo.Infrastructure.Data;
-using ToDo.Service.Entities;
-using ToDo.Service.Interfaces;
-using ToDo.Service.ToDoItems;
+using ToDo.Core.Entities;
+using ToDo.Core.Interfaces;
+using ToDo.Core.ToDoItems;
 using Xunit;
 using static MongoDB.Libmongocrypt.CryptContext;
 
@@ -26,10 +26,12 @@ namespace ToDo.Tests
     public class UnitTestsAPI
     {
         //mock reference to service
+        private readonly Mock<IToDoRepository> _toDoRepository;
         private readonly Mock<IToDoService> toDoItemService;
 
         public UnitTestsAPI()
         {
+
             toDoItemService = new Mock<IToDoService>();
         }
 
@@ -41,13 +43,13 @@ namespace ToDo.Tests
             //Set up
             var expected = new List<ToDoItem>(){
                 new ToDoItem {
-                    Id = "ObjectID1212123",
+                    Id =  "ObjectID1212123",
                     Description = "Test Task 1",
                     IsCompleted = false
 
                 },
                 new ToDoItem {
-                    Id = "ObjectID1212dd123",
+                    Id =  "ObjectID1212dd123",
                     Description = "Test Task 2",
                     IsCompleted = true
                 }
@@ -69,13 +71,14 @@ namespace ToDo.Tests
             var result = await toDoController.GetAll();
 
             //Assert
-            Assert.Equal(expected, result);
+            Assert.Equivalent(expected, result);
         }
-
+       
 
         [Fact]
         public async void GetToDoItemList_ReturnsOneResult()
         {
+
             //Set up
             var expected = new ToDoItem
             {
@@ -93,7 +96,7 @@ namespace ToDo.Tests
 
 
             //Act
-            string IdExpected = "ObjectID1212123";
+            string IdExpected = "ObjectID1212123"; 
             var result = await toDoController.GetById(IdExpected);
 
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDo.Service.Entities;
+using ToDo.Core.Entities;
 
-namespace ToDo.Service.Interfaces
+namespace ToDo.Core.Interfaces
 {
     //interface to set methods available for service
     public interface IToDoService
