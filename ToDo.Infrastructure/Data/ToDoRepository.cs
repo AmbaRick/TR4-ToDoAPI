@@ -25,6 +25,8 @@ namespace ToDo.Infrastructure.Data
             ToDoRepositorySetUp ToDoRepository = new ToDoRepositorySetUp(toDoRepositorySettings);
             toDoItemList = ToDoRepository.ToDoItems;
         }
+
+        //TODO: add exception handling throughout all these functions
         public async Task Add(ToDoItem newToDoItem) =>
           await toDoItemList.InsertOneAsync(newToDoItem);
 
@@ -35,7 +37,18 @@ namespace ToDo.Infrastructure.Data
 
         public async Task Update(string id, ToDoItem newToDoItem) => await toDoItemList.ReplaceOneAsync(x => x.Id == id, newToDoItem);
 
-        public async Task Delete(string id) => await toDoItemList.DeleteOneAsync(x => x.Id == id);
+        public async Task Delete(string id)
+        {
+            try
+            {
+                await toDoItemList.DeleteOneAsync(x => x.Id == id);
+            }
+            catch(Exception ex)
+            {
+                //for now throw the exception - would eventually handle differnent errors and log
+                throw (ex);
+            }
+        }
 
     }
 }

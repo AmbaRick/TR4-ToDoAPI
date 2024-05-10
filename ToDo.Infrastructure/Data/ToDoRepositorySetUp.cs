@@ -23,10 +23,19 @@ namespace ToDo.Infrastructure.Data
                .RegisterToDoRepository<ToDoItem>(cm =>
                {
                });
-            var mongoClient = new MongoClient(customerDBSettings.Value.ConnectionString);
-            var toDoDatabase = mongoClient.GetDatabase(customerDBSettings.Value.DatabaseName);
+            try
+            {
+                var mongoClient = new MongoClient(customerDBSettings.Value.ConnectionString);
+                var toDoDatabase = mongoClient.GetDatabase(customerDBSettings.Value.DatabaseName);
 
-            this.ToDoItems = toDoDatabase.GetCollection<ToDoItem>(customerDBSettings.Value.CollectionName);
+                this.ToDoItems = toDoDatabase.GetCollection<ToDoItem>(customerDBSettings.Value.CollectionName);
+            }
+            catch (Exception ex)
+            {
+                //TODO: add error handling for connection issues etc. would send to log. for not just throw .
+                throw (ex);
+            }
+
         }
     }
 

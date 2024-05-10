@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDo.Tests.ToDoAPIController
 {
-    internal class ToDoControllerPutTests
+    public class ToDoControllerPutTests
     {
     }
 }
