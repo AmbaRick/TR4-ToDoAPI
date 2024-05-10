@@ -64,13 +64,17 @@ Below are the endpoints structure detailed:
 
 
 
-Example json for ToDoItem:
+**Example json for ToDoItem:**
 
 
 { 
+
    "id": "663dcd5a660980dddd4d16cf068",
+   
    "description": "Task 1",
+   
    "isCompleted": true
+   
 } 
 
 
