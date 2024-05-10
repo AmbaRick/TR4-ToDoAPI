@@ -28,32 +28,35 @@ https://ardalis.com/clean-architecture-asp-net-core/
 - Delete existing to-do list items
 
 ## Installation
-Prerequisites:
-•	Ensure you have MongoDb Installed on your local computer or use Atlas (cloud version)
+
+**Prerequisites**:
+
+Ensure you have MongoDb Installed on your local computer or use Atlas (cloud version)
 
 1. Navigate to the project directory.
+   
 2. Install dependencies using `dotnet restore`.
-3. Set up MongoDB and configure connection string in `appsettings.json`.  Format below:
+   
+3. Set up MongoDB and configure connection string in `appsettings.json`.
+  
+   Format below:
 CustomerDatabase": {
     "ConnectionString": "URL To Database",
     "DatabaseName": "Name of Database",
     "CollectionName": "Name of collection"
   },
-5. Run the application using `dotnet run`.
+
+4. Run the application using `dotnet run`.
 
 #Endpoints
+
 Below are the endpoints structure detailed:
+
 •	GET: /api/todoitem/   - Returns all the ToDo items
 •	GET: /api/todoitem/{id} – Return a ToDoItem based on passed ID
-•	POST: /api/todoitem/ - Creates a new ToDo item – using ToDOItem listed object below   
+•	POST: /api/todoitem/ - Creates a new ToDo item – using ToDOItem listed object below  
 •	PUT:  /api/todoitem/{id}    - Updates the ToDo item of passed in ID using ToDOItem listed object
 •	DELETE:  /api/todoitem/{id}    - Deletes a ToDo item based on passed ID  
-
-•	GET /api/todo: Get all todos.
-•	GET /api/todo/{id}: Get a todo by its ID.
-•	POST /api/todo: Create a new todo.
-•	PUT /api/todo/{id}: Update an existing todo.
-•	DELETE /api/todo/{id}: Delete a todo by its ID.
 
 Example json for ToDoItem
 {
