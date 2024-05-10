@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Amazon.Runtime.Internal;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Core.Entities;
 using ToDo.Core.Interfaces;
@@ -14,6 +15,8 @@ namespace ToDo.API.Controllers
     [ApiController]
     public class ToDoItemController : ControllerBase
     {
+        //TODO: sepearte the methods in to their own classes to keep the code clean
+        //TODO: review way set the endpoints - consider FastEndPoints 
         private readonly IToDoService toDoService;
 
         public ToDoItemController(IToDoService toDoService)
@@ -27,12 +30,10 @@ namespace ToDo.API.Controllers
         /// <param name="newToDoItem"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post(ToDoItem newToDoItem)
+        public async Task<ActionResult> Post(ToDoItem newToDoItem)
         {
-            //TODO: 
-            newToDoItem.Id  = string.Empty;
+            newToDoItem.Id = string.Empty;
             await toDoService.AddToDoItem(newToDoItem);
-
             return CreatedAtAction(nameof(GetById), new { id = newToDoItem.Id }, newToDoItem);
         }
 

@@ -7,12 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//TODO: move DB spefici to own DI class in Infrastructure project
+//TODO: move DB specific to own DI class in Infrastructure project - keeping it clean
 builder.Services.Configure<ToDoRepositorySettings>(builder.Configuration.GetSection("CustomerDatabase"));
 
-//TODO: check if needs singleton instance of DI?
+//TODO: check if needs singleton instance of DI for MongoDB?
 
-//TODO: try and separrate the mothods for CRUD
 builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 builder.Services.AddScoped<IToDoService, ToDoItemService>();
 

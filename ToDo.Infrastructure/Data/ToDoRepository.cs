@@ -25,6 +25,7 @@ namespace ToDo.Infrastructure.Data
             ToDoRepositorySetUp ToDoRepository = new ToDoRepositorySetUp(toDoRepositorySettings);
             toDoItemList = ToDoRepository.ToDoItems;
         }
+        //TODO: sepearte the methods in to their own classes to keep the code clean
 
         //TODO: add exception handling throughout all these functions
         public async Task Add(ToDoItem newToDoItem) =>

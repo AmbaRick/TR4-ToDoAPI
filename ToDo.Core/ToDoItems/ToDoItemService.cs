@@ -17,6 +17,8 @@ namespace ToDo.Core.ToDoItems
     /// </summary>
     public class ToDoItemService : IToDoService
     {
+
+        //TODO: sepearte the methods in to their own classes to keep the code clean
         private readonly IToDoRepository toDoRepository;
         public ToDoItemService(IToDoRepository toDoRepository)
         {
@@ -24,8 +26,7 @@ namespace ToDo.Core.ToDoItems
         }
         public async Task AddToDoItem(ToDoItem newToDoItem)
         {
-            //TODO: find a way to add validation in biz rules
-            //Added fluent validation in the business model to see how it works
+            //Added fluent validation in the business rules to see how it works
             ToDoItemValidator validator = new ToDoItemValidator();
             ValidationResult results = await validator.ValidateAsync(newToDoItem);
             if (results.IsValid)
@@ -35,7 +36,7 @@ namespace ToDo.Core.ToDoItems
             else
             {
                 //TODO: this is not working and needs reviewing - validation review
-                //Wanted to validate in the business rules.  Need to find a slick easy way and not throw an actual exception
+                //Wanted to validate in the business rules. 
                 Task.FromResult(results);
             }
         }

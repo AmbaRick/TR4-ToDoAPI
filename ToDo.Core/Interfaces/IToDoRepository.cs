@@ -13,15 +13,11 @@ namespace ToDo.Core.Interfaces
     public interface IToDoRepository
     {
 
-      ///  Task<List<ToDoItem>> GetAll();
-
         Task Add(ToDoItem newCustomer);
 
         Task<ToDoItem?> Get(string id);
 
         Task<List<ToDoItem>> GetAll();
-
-        //Task Delete(string id);
 
         Task Update(string id, ToDoItem newToDoItem);
 
