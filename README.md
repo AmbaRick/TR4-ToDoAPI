@@ -4,7 +4,7 @@
 
 This project is a REST API designed to Create, Retrieve, Update, and Delete to-do list items. It utilizes MongoDB as the repository. The primary goal is to showcase skills in creating a REST API with CRUD functionalities while adhering to best practices such as testing, naming conventions, code structure, and readability.
 
-##Approach
+## Approach
 I've separated my projects into three areas: API, Core, and Infrastructure. I've implemented dependency injection to manage instances of repositories and services. The aim was to structure the project in line with the ports and adapters style architecture and keeping the code clean and modular. This approach enables each component to be decoupled, making it easier to test and scale among other reasons.  Furthermore, it provides a clear separation between the API layer and business rules, allowing each layer to be replaced independently if necessary.
 
 There are still areas within the application that require further adaptation. For instance, each method could  have its own class for controller, the service and repository methods could be in each of their classes.  
@@ -48,7 +48,7 @@ CustomerDatabase": {
 
 4. Run the application using `dotnet run`.
 
-**#Endpoints**
+## Endpoints
 
 Below are the endpoints structure detailed:
 
