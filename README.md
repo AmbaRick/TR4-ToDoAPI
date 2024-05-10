@@ -9,7 +9,9 @@ I've separated my projects into three areas: API, Core, and Infrastructure. I've
 
 There are still areas within the application that require further adaptation. For instance, each method could  have its own class for controller, the service and repository methods could be in each of their classes.  
 The following URL’s are some of the sites I have used for reference and research.
+
 https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+
 https://ardalis.com/clean-architecture-asp-net-core/
 
 ## Technologies
