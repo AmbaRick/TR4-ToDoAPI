@@ -53,10 +53,15 @@ CustomerDatabase": {
 Below are the endpoints structure detailed:
 
 •	GET: /api/todoitem/   - Returns all the ToDo items
+
 •	GET: /api/todoitem/{id} – Return a ToDoItem based on passed ID
-•	POST: /api/todoitem/ - Creates a new ToDo item – using ToDOItem listed object below  
+
+•	POST: /api/todoitem/ - Creates a new ToDo item – using ToDOItem listed object below 
+
 •	PUT:  /api/todoitem/{id}    - Updates the ToDo item of passed in ID using ToDOItem listed object
+
 •	DELETE:  /api/todoitem/{id}    - Deletes a ToDo item based on passed ID  
+
 
 
 Example json for ToDoItem
